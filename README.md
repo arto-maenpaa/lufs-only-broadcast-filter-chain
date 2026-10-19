@@ -58,6 +58,27 @@ When you test this raw-to-LUFS blueprint in a real podcast-broadcast setup, the 
 * **The Procaster After This Chain:** Running this single LUFS filter pulls the treble right out of the mud, completely opening up the sound. It suddenly transforms into a rich, premium broadcast masterpiece.
 * **The NT1-A Comparison:** The Røde NT1-A is an excellent, ultra-clean $150 studio condenser. But once you apply this exact LUFS filter to both raw tracks, the NT1-A sounds incredibly dull and boring. The normalized Procaster completely destroys it for broadcast use.
 ---
+## Prior Art & Attribution: The Scope of This Invention
+
+To understand the scope of this blueprint, a clear distinction must be made between the underlying open-source processing tools and the original philosophy introduced by this repository:
+
+### 1. Underlying Technology (Prior Art)
+* **The `loudnorm` Filter:** The underlying mathematical loudness normalization filter belongs to the open-source FFmpeg project (based on the international EBU R128 loudness standard introduced to the codebase in 2016).
+* **The Targets:** Compressing or normalizing audio files to a baseline of **-14 LUFS** and **-1 dBTP** is the standard, documented technical specification required by distribution platforms like YouTube and Spotify.
+
+### 2. The Original Invention (The Philosophy)
+While the code string itself leverages existing engineering libraries, **the conceptual framework and application strategy introduced here are an industry first.**
+
+Traditionally, the broadcast and podcast community treats muddy, mid-heavy dynamic microphone recordings as a problem that must be corrected using hardware presets (e.g., Rødecaster processing) or complex, multi-stage software EQ plugins. 
+
+**This blueprint introduces an entirely new post-processing paradigm:**
+* **Perceptual Treble Extraction:** It identifies that the buried treble definition in high-end dynamic capsules like the Røde Procaster is not a failure of frequency response, but a symptom of low perceived loudness.
+* **The Anti-Preset Manifesto:** It proves that a single-pass, uncompressed WAV-to-WAV loudness normalization is all that is required to instantly pull those hidden high frequencies out of the mid-range mud. 
+
+By eliminating the need for expensive hardware middlemen and multi-stage plugins, this project serves as an original, iconoclasonic architectural guide—repurposing a data-engineering automation tool into a free, premium audio mastering solution for content creators.
+
+---
+
 
 ## License & Attribution
 
