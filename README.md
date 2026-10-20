@@ -15,6 +15,26 @@ This repository provides a single-pass FFmpeg configuration using the `loudnorm`
 * **Pure Lossless Execution:** Keeps your files uncompressed throughout the normalization process. No transcoding degradation, no compressed artifacts. Just mathematical gain-staging directly into PCM audio.
 
 ---
+## The Non-Negotiable Physical Rule: 100% On-Axis Delivery
+
+The single-pass LUFS filter chain is not magic; it is a mathematical distribution engine. For this blueprint to successfully pull the treble out of the mud, **you must capture the treble at the acoustic capsule first.** 
+
+### 1. Off-Axis Audio Kills Treble Experimentally
+Broadcast dynamic microphones (like the Røde Procaster) are highly directional pressure-gradient transducers. High frequencies are exceptionally short and directional sound waves:
+* **The Physics:** If you speak off-axis (tilted away or talking into the side of the microphone barrel), the fast, crisp high-end transients completely miss the capsule's primary pick-up zone.
+* **The Consequence:** Off-axis placement introduces a permanent acoustic roll-off. It strips away the clarity, definition, and presence of your voice before the signal ever hits your audio interface. 
+
+### 2. Software Cannot Rebuild What Was Never Captured
+If you feed a muddy, off-axis recording into this filter chain, it will fail. Because the high frequencies are physically missing from the raw waveform, the `loudnorm` filter will calculate its distribution targets based entirely on your heavy low-mid mud. The result is a boomy, compressed, and suffocating output.
+
+### 3. The Flawless Setup Blueprint
+To achieve 100% true broadcast performance, your physical delivery must be entirely disciplined:
+* **100% On-Axis Angle:** Point the top dome grille of the Procaster directly at your lips. Deliver your speech straight down the barrel of the microphone.
+* **Mechanical Diffusion Over Foam Blankets:** If plosives ("P" and "B" pops) are an issue, **do not** stack heavy foam windscreens or thick fabric pop filters over the mic—they act as high-cut filters and replicate the muffled factory characteristics. Instead, strip away internal foam restrictions and place a micro-thin, low-density open-cell acoustic foam slice directly over the top of the capsule frame as a mechanical air diffuser.
+
+By ensuring a **100% on-axis straight delivery**, your raw input audio retains its native transient detail. This provides the LUFS engine with a pristine, full-spectrum waveform, allowing it to balance the track beautifully without needing a single digital equalizer preset.
+
+---
 
 ## The Blueprint Commands
 
